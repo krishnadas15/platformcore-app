@@ -1,8 +1,15 @@
-# Perl is bundled in the python:3.11-slim base image but is not used by this application.
-# These CVEs have no upstream fix available yet (Debian: fix_deferred/affected).
-# Reviewed 2026-08-27 — accepted risk, revisit when Debian ships a patch.
-CVE-2026-42497
-CVE-2026-48962
-CVE-2026-57432
-CVE-2026-57433
-CVE-2026-9538
+# Base image OS-level CVEs (Debian bookworm) with no upstream fix yet — not exploitable via our app surface (Flask, port 5000 only).
+# Reviewed 2026-08-27.
+CVE-2026-41992
+CVE-2026-54369
+CVE-2025-69720
+CVE-2026-11822
+CVE-2026-11824
+CVE-2026-13221
+CVE-2026-42496
+CVE-2026-8376
+
+# Fixed upstream but bundled read-only in base image, not actively used by our app; will clear once base image rebuilds.
+CVE-2026-14456
+CVE-2025-47273
+GHSA-6v7p-g79w-8964
