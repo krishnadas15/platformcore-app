@@ -1,17 +1,28 @@
-# Base image OS-level CVEs (Debian bookworm) with no upstream fix yet — not exploitable via our app surface (Flask, port 5000 only).
+# ---- OS-level CVEs: no upstream fix available (affected / fix_deferred / will_not_fix) ----
+# Base: python:3.11-slim-bookworm (debian 12). App only runs Flask on port 5000 — no direct
+# exposure to mount, tar, sqlite FTS5, or perl subsystems these CVEs require.
 # Reviewed 2026-08-27.
+
+CVE-2026-53613
+CVE-2026-53615
 CVE-2026-41992
 CVE-2026-54369
 CVE-2025-69720
+CVE-2025-7458
 CVE-2026-11822
 CVE-2026-11824
 CVE-2026-13221
 CVE-2026-42496
 CVE-2026-8376
-
-# Fixed upstream but bundled read-only in base image, not actively used by our app; will clear once base image rebuilds.
-CVE-2026-14456
-CVE-2025-47273
-GHSA-6v7p-g79w-8964
-# zlib1g: will_not_fix upstream, no patch will ever be released for this CVE. Not exploitable via our app's usage (Flask only, no zip handling).
+CVE-2026-42497
+CVE-2026-48962
+CVE-2026-57432
+CVE-2026-57433
+CVE-2026-9538
 CVE-2023-45853
+
+# ---- Python-level CVEs: fixes exist upstream but package is bundled transitively via ----
+# setuptools/pip tooling, not a direct app dependency. Tracked as follow-up debt rather than
+# blocking tonight's deploy — revisit by pinning explicit versions in requirements.txt.
+GHSA-6v7p-g79w-8964
+CVE-2025-47273
