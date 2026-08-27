@@ -13,3 +13,5 @@ CVE-2026-8376
 CVE-2026-14456
 CVE-2025-47273
 GHSA-6v7p-g79w-8964
+# zlib1g: will_not_fix upstream, no patch will ever be released for this CVE. Not exploitable via our app's usage (Flask only, no zip handling).
+CVE-2023-45853
